@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nova Drift - Download</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #1E3A8A, #60A5FA);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            position: relative; /* Needed for absolute pop-up */
+            overflow: hidden;
+        }
+
+        .download-button {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #f9fafb;
+            color: #1f2937;
+            padding: 45px 90px;
+            font-size: 31px;
+            border: none;
+            border-radius: 25px;
+            box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .download-button:hover {
+            background-color: #e5e7eb;
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .download-button:active {
+            transform: scale(0.95);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .download-icon {
+            width: 30px;
+            height: 30px;
+            fill: #1f2937;
+        }
+
+        .thank-you-popup {
+            position: absolute;
+            top: 5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #ffffff;
+            padding: 30px 50px;
+            border-radius: 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            font-size: 24px;
+            color: #1f2937;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            pointer-events: none;
+        }
+
+        .thank-you-popup.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <button class="download-button" id="downloadBtn">
+        <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M5 20h14v-2H5v2zm7-18l-5 5h3v6h4v-6h3l-5-5z"/>
+        </svg>
+        Download
+    </button>
+
+    <div class="thank-you-popup" id="thankYouPopup">
+        Thanks for downloading Nova Drift!
+    </div>
+
+    <script>
+        const downloadBtn = document.getElementById('downloadBtn');
+        const thankYouPopup = document.getElementById('thankYouPopup');
+
+        downloadBtn.addEventListener('click', () => {
+            // Show the thank you popup
+            thankYouPopup.classList.add('show');
+
+            // Hide it after 3 seconds
+            setTimeout(() => {
+                thankYouPopup.classList.remove('show');
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
